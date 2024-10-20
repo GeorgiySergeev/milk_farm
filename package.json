@@ -1,0 +1,32 @@
+{
+  "name": "milk-farm",
+  "version": "1.0.0",
+  "description": "milk farm store",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "lint": "eslint --ext.js,.vue src",
+    "format": "prettier --write '**/*.{js,vue,json,css,scss}'",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeorgiySergeev/milk_farm.git"
+  },
+  "author": "Georgiy Sergeev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GeorgiySergeev/milk_farm/issues"
+  },
+  "homepage": "https://github.com/GeorgiySergeev/milk_farm#readme",
+  "devDependencies": {
+    "sass": "^1.80.3",
+    "vite": "^5.4.9"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3"
+  }
+}
