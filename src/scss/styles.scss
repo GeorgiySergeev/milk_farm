@@ -1,0 +1,258 @@
+// Functions first
+@import '../node_modules/bootstrap/scss/functions';
+// Import all of Bootstrap's CSS
+@import 'bootstrap/scss/bootstrap';
+
+// @import './Montserrat.css';
+
+// Variable overrides second
+// $primary: #d61149;
+$enable-shadows: true;
+$font-family: 'Montserrat', sans-serif;
+$prefix: 'bs-';
+
+// Required Bootstrap imports
+// @import '../node_modules/bootstrap/scss/variables';
+// @import '../node_modules/bootstrap/scss/variables-dark';
+// @import '../node_modules/bootstrap/scss/maps';
+// @import '../node_modules/bootstrap/scss/mixins';
+// @import '../node_modules/bootstrap/scss/root';
+
+// Custom Bootstrap components
+// @import '../node_modules/bootstrap/scss/utilities';
+// @import '../node_modules/bootstrap/scss/reboot';
+// @import '../node_modules/bootstrap/scss/containers';
+// @import '../node_modules/bootstrap/scss/grid';
+// @import '../node_modules/bootstrap/scss/helpers';
+// @import '../node_modules/bootstrap/scss/utilities/api';
+
+//
+@import './cart.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family;
+  box-sizing: border-box;
+  background: #fff;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #1d1d1d;
+
+  font-weight: 700;
+  margin: 0;
+}
+
+h1 {
+  font-size: 3.6rem;
+}
+@media (max-width: 767px) {
+  h1 {
+    font-size: 2.3rem;
+  }
+}
+
+h2 {
+  font-size: 5.6rem;
+}
+
+h3 {
+  font-size: 2.6rem;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+h5 {
+  font-size: 1.3rem;
+  margin-bottom: 0;
+}
+
+a {
+  // font-size: 1.8rem;
+  font-weight: 700;
+  color: #1d1d1d;
+  text-decoration: none;
+}
+a .list-text {
+  color: #ffffff;
+  font-size: 1.6rem;
+}
+a span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+p {
+  font-size: 15px;
+  color: #797979;
+  font-weight: 400;
+
+  margin-bottom: 0;
+}
+
+ul {
+  padding-left: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+iframe {
+  width: 100%;
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1200px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+.box-shadows {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+input {
+  font-size: 1.3rem;
+  border: 1px solid rgba(118, 167, 19, 0.15);
+}
+
+input[type='checkbox'] {
+  accent-color: #34a853;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+//
+.hero {
+  background: url('/images/homepage-one/page-title-banner.png') no-repeat center/cover;
+  padding: 2rem 0;
+}
+.hero .heading {
+  text-align: center;
+}
+
+.header-top-section {
+  border-bottom: 1px solid rgba(52, 168, 83, 0.06);
+  background: rgba(52, 168, 83, 0.06);
+}
+
+.header-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0px;
+}
+.header-top .header-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.header-top .header-contact .header-top-contact {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.header-top .header-contact .header-top-contact .top-contact {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.header-top .header-contact .divider {
+  height: 1.4rem;
+  width: 1px;
+  background: rgba(121, 121, 121, 0.18);
+}
+.header-top .header-contact .contact-number {
+  color: #34a853;
+  font-weight: 700;
+}
+@media (max-width: 1023px) {
+  .header-top {
+    padding: 1rem;
+  }
+}
+
+.header-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0px;
+  padding: 1.9rem 0 2.2rem 0;
+}
+.header-center .header-cart-items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+.header-center .header-cart-items .cart-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 5px;
+}
+
+.product-name {
+  width: 200px;
+}
+@media only screen and (max-width: 767px) {
+  .product-name {
+    margin: 0 auto;
+  }
+}
+
+// FOOTER
+
+.footer {
+  width: 100%;
+  height: 180px;
+  background-image: url('/images/product-img/footer-bg.jpg');
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
