@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family;
+  box-sizing: border-box;
+  background: #fff;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  // color: #1d1d1d;
+
+  font-weight: 700;
+  margin: 0;
+}
+
+h1 {
+  font-size: 6rem;
+}
+@media (max-width: 767px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+@media (max-width: 767px) {
+  h2 {
+    font-size: 2.5rem;
+  }
+}
+
+h3 {
+  font-size: 2.6rem;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+h5 {
+  font-size: 1.3rem;
+  margin-bottom: 0;
+}
+
+a {
+  // font-size: 1.8rem;
+  font-weight: 400;
+  color: #1d1d1d;
+  text-decoration: none;
+}
+
+a .list-text {
+  color: #ffffff;
+  font-size: 1.6rem;
+}
+a span {
+  font-size: 16px;
+  font-weight: 500;
+}
+@media (max-width: 767px) {
+  a span {
+    font-size: 12px;
+  }
+}
+
+p {
+  font-size: 16px;
+  color: #797979;
+  font-weight: 400;
+
+  margin-bottom: 0;
+}
+
+ul {
+  padding-left: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+iframe {
+  width: 100%;
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1200px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+.box-shadows {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+input {
+  font-size: 1rem;
+  border: 1px solid rgba(118, 167, 19, 0.15);
+}
+
+input[type='checkbox'] {
+  accent-color: #34a853;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+}

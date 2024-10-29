@@ -1,9 +1,4 @@
-// Functions first
-@import '../node_modules/bootstrap/scss/functions';
-// Import all of Bootstrap's CSS
 @import 'bootstrap/scss/bootstrap';
-
-// @import './Montserrat.css';
 
 // Variable overrides second
 // $primary: #d61149;
@@ -11,199 +6,86 @@ $enable-shadows: true;
 $font-family: 'Montserrat', sans-serif;
 $prefix: 'bs-';
 
-// Required Bootstrap imports
-// @import '../node_modules/bootstrap/scss/variables';
-// @import '../node_modules/bootstrap/scss/variables-dark';
-// @import '../node_modules/bootstrap/scss/maps';
-// @import '../node_modules/bootstrap/scss/mixins';
-// @import '../node_modules/bootstrap/scss/root';
+@import '_global.scss';
 
-// Custom Bootstrap components
-// @import '../node_modules/bootstrap/scss/utilities';
-// @import '../node_modules/bootstrap/scss/reboot';
-// @import '../node_modules/bootstrap/scss/containers';
-// @import '../node_modules/bootstrap/scss/grid';
-// @import '../node_modules/bootstrap/scss/helpers';
-// @import '../node_modules/bootstrap/scss/utilities/api';
-
-//
-@import './cart.scss';
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-}
-
-html {
-  overflow-x: hidden;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: $font-family;
-  box-sizing: border-box;
-  background: #fff;
-  overflow-x: hidden;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-  color: #1d1d1d;
-
-  font-weight: 700;
-  margin: 0;
-}
-
-h1 {
-  font-size: 3.6rem;
-}
-@media (max-width: 767px) {
-  h1 {
-    font-size: 2.3rem;
-  }
-}
-
-h2 {
-  font-size: 5.6rem;
-}
-
-h3 {
-  font-size: 2.6rem;
-}
-
-h4 {
-  font-size: 2rem;
-}
-
-h5 {
-  font-size: 1.3rem;
-  margin-bottom: 0;
-}
-
-a {
-  // font-size: 1.8rem;
-  font-weight: 700;
-  color: #1d1d1d;
-  text-decoration: none;
-}
-a .list-text {
-  color: #ffffff;
-  font-size: 1.6rem;
-}
-a span {
-  font-size: 14px;
-  font-weight: 500;
-}
-
-p {
-  font-size: 15px;
-  color: #797979;
-  font-weight: 400;
-
-  margin-bottom: 0;
-}
-
-ul {
-  padding-left: 0;
-  margin: 0;
-}
-
-li {
-  list-style: none;
-}
-
-img {
-  vertical-align: middle;
-  max-width: 100%;
-}
-
-iframe {
-  width: 100%;
-}
-
-@media only screen and (min-width: 767px) and (max-width: 1200px) {
-  .container {
-    padding: 0 2rem;
-  }
-}
-
-.box-shadows {
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-
-input,
-button {
-  border: none;
-  outline: none;
-  background: transparent;
-}
-
-input {
-  font-size: 1.3rem;
-  border: 1px solid rgba(118, 167, 19, 0.15);
-}
-
-input[type='checkbox'] {
-  accent-color: #34a853;
-}
-
-button {
-  border: none;
-  outline: none;
-  background: transparent;
-}
-//
 .hero {
-  background: url('/images/homepage-one/page-title-banner.png') no-repeat center/cover;
-  padding: 2rem 0;
-}
-.hero .heading {
-  text-align: center;
+  padding: 8.23rem 0 1rem 0;
 }
 
-.header-top-section {
+@media (max-width: 1023px) {
+  .hero {
+    padding: 60px 0px 20px 0px;
+  }
+}
+
+.hero-heading {
+  position: relative; /* Устанавливаем позиционирование для родительского элемента */
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  background: url('/images/hero-img-lg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Добавляем оверлей */
+.hero-heading::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный черный цвет */
+  z-index: 1; /* Располагаем оверлей поверх фонового изображения */
+}
+
+/* Контент, который нужно отобразить поверх оверлея */
+.hero-heading-content {
+  position: relative;
+  z-index: 2; /* Контент располагается поверх оверлея */
+  color: #fff;
+  text-align: center;
+  padding: 180px 20px;
+}
+
+@media (max-width: 1023px) {
+  .hero-heading-content {
+    padding: 60px 20px;
+  }
+}
+
+// header
+
+header {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: #f3f3f3;
   border-bottom: 1px solid rgba(52, 168, 83, 0.06);
-  background: rgba(52, 168, 83, 0.06);
+  // background: rgba(52, 168, 83, 0.06);
 }
 
 .header-top {
   display: flex;
-  flex-direction: row;
+  // flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 0px;
+  padding: 0.5rem 1rem;
 }
-.header-top .header-profile {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-}
+
 .header-top .header-contact .header-top-contact {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-}
-.header-top .header-contact .header-top-contact .top-contact {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
 }
-.header-top .header-contact .divider {
-  height: 1.4rem;
-  width: 1px;
-  background: rgba(121, 121, 121, 0.18);
-}
+
 .header-top .header-contact .contact-number {
   color: #34a853;
   font-weight: 700;
@@ -214,27 +96,16 @@ button {
   }
 }
 
-.header-center {
+.header-cart {
+  // max-width: 86px;
+
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  gap: 0px;
-  padding: 1.9rem 0 2.2rem 0;
-}
-.header-center .header-cart-items {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 2.5rem;
-}
-.header-center .header-cart-items .cart-item {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: center;
   gap: 5px;
+}
+
+.header-cart-total {
+  // width: 60px;
 }
 
 .product-name {
@@ -251,8 +122,288 @@ button {
 .footer {
   width: 100%;
   height: 180px;
-  background-image: url('/images/product-img/footer-bg.jpg');
+  background-image: url('/images/footer-bg.jpg');
   background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.header-cart-items {
+  margin-left: auto;
+}
+
+.about-image {
+  float: left; /* Изображение обтекается текстом справа */
+  margin-right: 30px; /* Добавляем отступ справа, чтобы текст не прилипал к изображению */
+  margin-bottom: 20px; /* Отступ снизу для гармонии */
+  max-width: 100%; /* Ограничиваем максимальный размер изображения относительно контейнера */
+  height: auto; /* Поддерживаем пропорции изображения */
+}
+.about-text {
+  font-size: 20px;
+  padding: 15px 0;
+  line-height: 34px; /* На мобильных устройствах сделаем текст одной строкой */
+  text-align: justify;
+}
+
+@media (max-width: 767px) {
+  /* Убираем отступы справа и снизу на мобильных устройствах */
+  .about-text {
+    padding: 20px 0;
+    font-size: 16px;
+    line-height: 1.5; /* На мобильных устройствах сделаем текст более читаемым */
+  }
+}
+
+/* На мобильных устройствах можно изображение сделать на 100% ширины */
+@media (max-width: 768px) {
+  .about-image {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    max-width: 180px; /* Ширина изображения на 100% */
+  }
+}
+
+/** Button style **/
+.theme-btn,
+a.theme-btn {
+  color: white;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  font-weight: 700;
+  border-radius: 7px;
+  text-align: center;
+  padding: 11px 30px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-transform: uppercase;
+  display: block;
+  margin-left: auto;
+
+  background: #ff7800;
+}
+.theme-btn i,
+a.theme-btn i {
+  font-size: 13px;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  margin-left: 10px;
+}
+.theme-btn:hover,
+a.theme-btn:hover {
+  background: #76a713;
+}
+.theme-btn:hover i,
+a.theme-btn:hover i {
+  margin-left: 13px;
+  margin-right: -3px;
+}
+.theme-btn.style-two,
+a.theme-btn.style-two {
+  background: #76a713;
+}
+.theme-btn.style-two:hover,
+a.theme-btn.style-two:hover {
+  background: #ff7800;
+}
+.theme-btn.style-three,
+a.theme-btn.style-three {
+  color: #1a2428;
+  background: transparent;
+  border: 1px solid rgba(118, 167, 19, 0.15);
+}
+.theme-btn.style-three:hover,
+a.theme-btn.style-three:hover {
+  color: #ff7800;
+  border-color: #ff7800;
+}
+.theme-btn.btn-white,
+a.theme-btn.btn-white {
+  background: transparent;
+  border: 1px solid white;
+}
+@media only screen and (max-width: 575px) {
+  .theme-btn,
+  a.theme-btn {
+    padding: 9px 25px;
+  }
+}
+
+/*** Scroll Top style ***/
+.scroll-top {
+  left: calc(50% - 22.5px);
+  position: absolute;
+  top: -22.5px;
+  width: 50px;
+  height: 50px;
+  z-index: 99;
+  color: white;
+  display: none;
+  cursor: pointer;
+  line-height: 50px;
+  border-radius: 5px;
+  background: #ff7800;
+  -webkit-animation: pulse 2s infinite;
+  animation: pulse 2s infinite;
+}
+@media only screen and (max-width: 991px) {
+  .scroll-top {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+  }
+}
+
+/*******************************************************/
+/************** 28. Cart & Checkout Area ***************/
+/*******************************************************/
+/* Cart Page */
+.cart-item-wrap {
+  border: 1px solid rgba(118, 167, 19, 0.15);
+  padding: 0.5rem;
+  border-radius: 10px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  row-gap: 20px;
+  // background-image: url('/images/product-section-bg.jpg');
+  // background-size: cover;
+  // background-position: bottom;
+  // background-blend-mode: overlay;
+}
+
+.cart-single-item {
+  // padding: 20px;
+  // background-color: #f8f7f7;
+
+  // border-bottom: 1px solid rgba(118, 167, 19, 0.15);
+  border: 1px solid rgba(118, 167, 19, 0.15);
+  // border-radius: 10px;
+  // margin-bottom: 15px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+@media only screen and (min-width: 768px) {
+  .cart-single-item {
+    // display: -webkit-box;
+    // display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+
+    // -webkit-box-align: center;
+    // -ms-flex-align: center;
+    align-items: center;
+    // -webkit-box-pack: justify;
+    // -ms-flex-pack: justify;
+    justify-content: space-evenly;
+  }
+}
+.cart-single-item .cart-img {
+  -webkit-box-flex: 0;
+  -ms-flex: none;
+  flex: none;
+  max-width: 280px;
+  border-radius: 10px;
+}
+// .cart-single-item .product-price:before {
+//   content: '₴';
+// }
+.cart-single-item .product-total-price {
+  // width: 110px;
+  margin-left: auto;
+  // max-width: 50px;
+  font-weight: 600;
+  text-align: center;
+  color: #1a2428;
+}
+.cart-single-item .product-total-price:before {
+  content: '₴';
+}
+@media only screen and (max-width: 767px) {
+  .cart-single-item {
+    // display: flex;
+    text-align: center;
+    background: #f3f3f3;
+  }
+  .cart-single-item .close {
+    float: none;
+  }
+  .cart-img {
+    margin: 0px auto;
+    margin-bottom: 15px;
+  }
+
+  .product-name {
+    margin-bottom: 5px;
+  }
+  .product-price {
+    margin-bottom: 5px;
+  }
+  .cart-single-item .quantity-input {
+    // margin-top: 15px;
+    // margin-bottom: 15px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .cart-single-item .stock {
+    display: block;
+    margin-bottom: 15px;
+  }
+  .cart-single-item .theme-btn {
+    margin-bottom: 10px;
+  }
+}
+
+// .quantity-input {
+//   // max-width: 380px;
+//   display: -webkit-box;
+//   display: -ms-flexbox;
+//   display: flex;
+// }
+// .quantity-input button {
+//   width: 45px;
+//   padding: 5px 15px;
+//   background: transparent;
+//   border: 1px solid rgba(118, 167, 19, 0.15);
+// }
+.quantity-input input {
+  // max-width: 25px;
+  // font-size: 14px;
+  padding: 8px;
+  text-align: center;
+  background: transparent;
+  border: 1px solid rgba(118, 167, 19, 0.1);
+}
+// .total-price:before,
+// .shipping-price:before,
+// .sub-total-price:before {
+//   content: '₴';
+// }
+
+.quantity-input label {
+  margin-bottom: 0.5rem;
+}
+
+.order-md-last {
+  max-width: 480px;
+  margin-left: auto;
+}
+
+.btn {
+  padding: 10px;
+}
+
+.item-wrapper {
+  width: 140px;
 }
