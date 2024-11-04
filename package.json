@@ -28,6 +28,8 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "inputmask": "^5.0.9",
+    "notiflix": "^3.2.7"
   }
 }

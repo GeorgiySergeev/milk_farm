@@ -1,11 +1,12 @@
+import Notiflix from 'notiflix';
 const TOKEN = import.meta.env.VITE_TEST_BOT_TOKEN;
 const CHAT_ID = import.meta.env.VITE_TEST_CHAT_ID;
 
 document.addEventListener('DOMContentLoaded', function () {
   const submitBtnEl = document.getElementById('submit-order');
-  const cart = []; // массив для хранения товаров в корзине
+  const cart = [];
 
-  // Функция добавления товара в корзину
+  // add to cart list
   function addToCart(productName, quantity, pricePerUnit, unit, quantityPerUnit) {
     const totalPrice = (pricePerUnit * quantity * quantityPerUnit).toFixed(2);
     const item = { name: productName, quantity, unit, price: totalPrice };
@@ -13,11 +14,11 @@ document.addEventListener('DOMContentLoaded', function () {
     renderCart();
   }
 
-  // Функция отображения корзины
+  // render c cart
   function renderCart() {
     const cartItemsContainer = document.getElementById('cart-items');
     const totalPriceElement = document.querySelectorAll('.total-price');
-    cartItemsContainer.innerHTML = ''; // Очищаем контейнер корзины
+    cartItemsContainer.innerHTML = '';
 
     let totalPrice = 0;
 
@@ -62,9 +63,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (quantity > 0) {
         addToCart(productName, quantity, pricePerUnit, unit, quantityPerUnit);
+        Notiflix.Notify.info(`${productName} додано до кошика.`, {
+          position: 'center-center',
+        });
         quantityInput.value = ''; // очистить поле количества после добавления в корзину
       } else {
-        alert('Введите количество больше нуля');
+        Notiflix.Notify.info('Введіть кількість або вагу товара');
       }
     });
   });
@@ -80,25 +84,24 @@ document.addEventListener('DOMContentLoaded', function () {
     orderData.totalPrice = totalPrice;
 
     if (!cart.length) {
-      alert('В корзині немає товарів!');
-      return; // Если корзина пуста, выходим из функции
+      Notiflix.Notify.failure('В корзині немає товарів!');
+      return;
     }
 
     if (!orderData.name || !orderData.phone) {
-      alert('Будь ласка, заповніть форму замовлення!');
-      return; // Если не все поля заполнены, выходим из функции
+      Notiflix.Notify.failure('Будь ласка, заповніть форму замовлення!');
+      return;
     }
 
-    let message = `Замовлення з сайту https://ferma.blummax.com:
+    let message = `Нове замовлення.
     \nИм'я: ${orderData.name}\nТелефон: ${orderData.phone}\nЗагальна сума замовлення: ${orderData.totalPrice} грн\n\n`;
 
-    // добавляем корзину в данные заказа
+    // add the order
     orderData.cart.forEach((product) => {
       message += `Товар: ${product.name}\nКількість: ${product.quantity}\nЦіна: ${product.price} грн\n\n `;
     });
-    // message += `${window.location.origin}\n`;
+    message += `${window.location.origin}\n`;
 
-    console.log(message);
     const botToken = TOKEN;
     const chatId = CHAT_ID;
 
@@ -118,24 +121,31 @@ document.addEventListener('DOMContentLoaded', function () {
       .then((response) => response.json())
       .then((data) => {
         if (data.ok) {
-          alert('Ваше замовлення відправлено!');
-          cart.length = 0; // очищаем корзину
+          Notiflix.Notify.success('Ваше замовлення відправлено!');
+
+          cart.length = 0;
           renderCart();
-          document.getElementById('order-form').reset(); // очищаем форму
+          document.getElementById('order-form').reset();
         } else {
-          alert('Помилка при відправленні замовлення.');
+          Notiflix.Notify.failure('Помилка відправлення');
         }
       })
       .catch((error) => {
-        alert('Упс, сталася помилка при відправленні замовлення. Повторіть спробування пізніше.');
+        Notiflix.Notify.failure(
+          'Упс, сталася помилка при відправленні замовлення. Повторіть спробу пізніше.',
+        );
+
         console.error(error);
       });
   });
 
-  // Удаление из корзины
+  // delete from cart
   document.getElementById('cart-items').addEventListener('click', (event) => {
     if (event.target.classList.contains('remove-item')) {
       const index = event.target.getAttribute('data-index');
+      Notiflix.Notify.info(`${cart[index].name} видалено з кошика.`, {
+        position: 'center-center',
+      });
       cart.splice(index, 1);
       renderCart();
     }
